@@ -6,7 +6,9 @@ def create_app(config_class=Config):
       app.config.from_object(Config)
 
       from app.main.controller.user_controller import user
-      app.register_blueprint(user)
+      from app.main.util.auth import auth
 
+      app.register_blueprint(user)
+      app.register_blueprint(auth)
       return app
 
